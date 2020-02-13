@@ -72,7 +72,26 @@ public class FuncionarioRepositorioImpl implements FuncionarioRepositorio {
 
 	@Override
 	public void atualizar(Funcionarios funcionario) throws SQLException {
-		// TODO Auto-generated method stub
+		Connection conexao = gerenciador.conectar();
+		String comandoSql = "UPDATE funcionarios SET matricula=?, nome=?, sobrenome=?, sexo=?, dtNascimento=?, email=?, status=?, telefone=?, endereco=?, cidade=?, uf=?, cep=?,cargos_codigo = ? WHERE  cpf=?";
+		PreparedStatement comando = conexao.prepareStatement(comandoSql);
+		comando.setString(1, funcionario.getMatricula());
+		comando.setString(2, funcionario.getNome());
+		comando.setString(3, funcionario.getSobrenome());
+		comando.setString(4, funcionario.getSexo());
+		comando.setString(5, funcionario.getDataNascimento());
+		comando.setString(6, funcionario.getEmail());
+		comando.setInt(7, funcionario.getStatus());
+		comando.setString(8, funcionario.getTelefone());
+		comando.setString(9, funcionario.getEndereco());
+		comando.setString(10, funcionario.getCidade());
+		comando.setString(11, funcionario.getUf());
+		comando.setString(12, funcionario.getCep());
+		comando.setInt(13, funcionario.getCargos_codigo());
+		comando.setString(4, funcionario.getCpf());
+		comando.executeUpdate();
+		comando.executeUpdate();
+		gerenciador.desconectar(conexao);
 
 	}
 

@@ -61,7 +61,9 @@ public class FuncionarioListarManager implements Serializable {
 	
 	
 	
-	
+	public String redirecionaCadastro() {
+		return "registroFuncionarios.xhtml";
+	}
 	
 	
 	

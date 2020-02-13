@@ -20,7 +20,7 @@ public class FuncionarioServico {
 	 * 
 	 * @param usuario Objeto contendo todos os dados para inclusão
 	 */
-	public void salvar(Funcionarios funcionario) throws FuncionarioServicoException{
+	public void salvar(Funcionarios funcionario) throws FuncionarioServicoException {
 		try {
 			this.repositorio.inserir(funcionario);
 		} catch (SQLException exception) {
@@ -42,8 +42,8 @@ public class FuncionarioServico {
 			throw new FuncionarioServicoException(exception.getMessage());
 		}
 	}
-	
-	public void excluir(String cpf) throws FuncionarioServicoException{
+
+	public void excluir(String cpf) throws FuncionarioServicoException {
 		try {
 			this.repositorio.excluir(cpf);
 		} catch (SQLException exception) {
@@ -51,7 +51,13 @@ public class FuncionarioServico {
 		}
 	}
 
+	public void alterar(Funcionarios funcionario) throws FuncionarioServicoException {
+		try {
+			this.repositorio.atualizar(funcionario);
+		} catch (SQLException exception) {
+			throw new FuncionarioServicoException(exception.getMessage());
+		}
 
+	}
 
-	
 }
