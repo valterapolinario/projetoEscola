@@ -44,7 +44,7 @@
 <form class="d-flex col-2 align-self-center">
 						<button type="button" class="btn btn-dark">
 							<h:link value="Novo Cadastro"
-								
+								outcome="${funcionarioCadastroManager.redirecionaCadastro()}"
 								style="color:white" />
 						</button>
 					</form>
@@ -70,20 +70,18 @@
 
 								<tbody>
 									<h:form>
-										<c:forEach var="funcionario" items="#{funcionarioListarManager.funcionarios}">
-											<tr>
-												<td>${funcionario.matricula}</td>
+									
+									<ui:repeat var="funcionario" value="#{funcionarioListarManager.funcionarios}">
+										<tr>
+											    <td>${funcionario.matricula}</td>
 												<td>${funcionario.cpf}</td>
-												<td>${funcionario.nome}</td>											
-												<td><i class="far fa-edit"></i> 
-												<h:link value="Editar"
-														outcome="${funcionarioAtualizaManager.alterar(funcionario)}"
-														 /> </td>
-												<td><i class="fas fa-trash-alt"></i><h:link value="deletar"
-														outcome="${funcionarioListarManager.excluir(funcionario)}"
-														 /></td>
-											</tr>
-										</c:forEach>
+												<td>${funcionario.nome}</td>
+											    <td><i class="far fa-edit"></i> <h:commandButton value="Editar" action="#{funcionarioAtualizaManager.alterar(funcionario)}"/></td>
+												<td><i class="fas fa-trash-alt"></i> <h:commandButton
+														action="#{funcionarioListarManager.excluir(funcionario)}"
+														value="Deletar" /></td>
+										</tr>
+									</ui:repeat>										
 										
 									</h:form>
 								</tbody>
