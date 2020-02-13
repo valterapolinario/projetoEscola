@@ -1,0 +1,170 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h1>REGISTRO DE TURMAS</h1>
+	<h:messages style="color:red" />
+	<h:form>
+		<h:outputLabel for="codigo" value="Codigo:" />
+		<h:inputText id="codigo" value="#{turmaCadastroManager.turma.codigo}" />
+		<br />
+		<h:outputLabel for="nome" value="Nome:" />
+		<h:inputText id="nome"
+			value="#{turmaCadastroManager.turma.nome}" />
+		<br />
+		<h:outputLabel for="status" value="Status:" />
+		<h:inputText id="status"
+			value="#{turmaCadastroManager.turma.status}" />
+		<br />
+		<h:outputLabel for="dtInicio" value="Data Inicio:" />
+		<h:inputText id="dtInicio" value="#{turmaCadastroManager.turma.dtInicio}" />
+		<br />
+		<h:outputLabel for="dtFim" value="Data Fim:" />
+		<h:inputText id="dtFim" value="#{turmaCadastroManager.turma.dtFim}" />
+		<br />
+		<h:outputLabel for="turno" value="Turno:" />
+		<h:inputText id="turno" value="#{turmaCadastroManager.turma.turno}" />
+		<br />
+		<h:outputLabel for="Cursos_codigo" value="Codigo Curso:" />
+		<h:inputText id="Cursos_codigo" value="#{turmaCadastroManager.turma.cursos_codigo}" />
+		<br />
+		<h:commandButton action="#{turmaCadastroManager.salvar()}" value="Salvar" />
+	</h:form>
+
+</body> 
+</html>
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Registro de Nova Turma</title>
+<link href="css/styles.css" rel="stylesheet" />
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
+	crossorigin="anonymous"></script>
+</head>
+<body class="bg-primary">
+	<div id="layoutAuthentication">
+		<div id="layoutAuthentication_content">
+			<main>
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-7">
+						<div class="card shadow-lg border-0 rounded-lg mt-5">
+							<div class="card-header">
+								<h3 class="text-center font-weight-light my-4">Cadastro de
+									Turmas</h3>
+							</div>
+							<div class="card-body">
+								<h:messages></h:messages>
+								<h:form>
+
+									<div class="form-row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="small mb-1" for="nome">Nome da Turma</label>
+												<h:inputText class="form-control py-4" id="nome" type="text"
+													value="#{turmaCadastroManager.turma.nome}" required="true"
+													requiredMessage="Insira Nome" />
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="small mb-1" for="codigo">Codigo da
+													Turma</label>
+												<h:inputText class="form-control py-4" id="Sobrenome"
+													type="number" value="#{turmaCadastroManager.turma.codigo}"
+													required="true" requiredMessage="Insira o Codigo" />
+											</div>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="small mb-1" for="turno">Turno</label>
+												<h:inputText class="form-control py-4" id="turno"
+													type="text" value="#{turmaCadastroManager.turma.turno}"
+													required="true" requiredMessage="Insira o Turno" />
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="Cursos_codigo">Codigo do Curso:</label>
+										<h:selectOneMenu
+											value="#{turmaCadastroManager.turma.cursos_codigo}"
+											required="true" requiredMessage="Selecione codigo válido">
+											<f:selectItem itemLabel="Selecionar" itemValue="#{null}"
+												noSelectionOption="true" />
+											<f:selectItem itemValue="1" itemLabel="1-Fisica" />
+										</h:selectOneMenu>
+									</div>
+
+
+									<div class="form-group">
+										<label for="Status">Status:</label>
+										<h:selectOneMenu value="#{turmaCadastroManager.turma.status}"
+											required="true" requiredMessage="Insira status válido">
+											<f:selectItem itemLabel="Selecionar" itemValue="#{null}"
+												noSelectionOption="true" />
+											<f:selectItem itemValue="0" itemLabel="0-Encerrada" />
+											<f:selectItem itemValue="1" itemLabel="1-Ativa" />
+											<f:selectItem itemValue="2" itemLabel="2-Confirmada" />
+											<f:selectItem itemValue="3" itemLabel="3-Em Formação" />
+											<f:selectItem itemValue="4" itemLabel="4-Cancelada" />
+											<f:selectItem itemValue="5" itemLabel="5-Suspensa" />
+										</h:selectOneMenu>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="small mb-1" for="dtInicio">Data Inicial
+											</label>
+											<h:inputText value="#{turmaCadastroManager.turma.dtInicio}"
+												id="dtInicio" />
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="small mb-1" for="dtFim">Data Final </label>
+											<h:inputText value="#{turmaCadastroManager.turma.dtFim}"
+												id="dtFim" />
+										</div>
+									</div>
+
+
+									<div class="form-group mt-4 mb-0">
+										<h:commandButton class="btn btn-primary btn-block"
+											action="#{turmaCadastroManager.salvar()}" value="Cadastrar" />
+									</div>
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</main>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+		crossorigin="anonymous"></script>
+	<script src="js/scripts.js"></script>
+</body>
+</html>

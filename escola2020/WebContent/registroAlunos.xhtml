@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Registro de Novo Aluno</title>
+<link href="css/styles.css" rel="stylesheet" />
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
+	crossorigin="anonymous"></script>
+</head>
+<body class="bg-primary">
+	<div id="layoutAuthentication">
+		<div id="layoutAuthentication_content">
+			<main>
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-7">
+						<div class="card shadow-lg border-0 rounded-lg mt-5">
+							<div class="card-header">
+								<h3 class="text-center font-weight-light my-4">Cadastro de
+									Aluno</h3>
+							</div>
+							<div class="card-body">
+								<h:messages></h:messages>
+								<h:form>
+		
+									<div class="form-row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="small mb-1" for="nome">Nome</label>
+												<h:inputText class="form-control py-4" id="nome" type="text"
+													value="#{alunoCadastroManager.aluno.nome}" required="true"
+													requiredMessage="Insira Nome" />
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="small mb-1" for="Sobrenome">Sobrenome</label>
+												<h:inputText class="form-control py-4" id="Sobrenome"
+													type="text" value="#{alunoCadastroManager.aluno.sobrenome}"
+													required="true" requiredMessage="Insira Sobrenome" />
+											</div>
+										</div>
+									</div>
+
+									<div class="form-row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="small mb-1" for="cpf">CPF</label>
+												<h:inputText class="form-control py-4" id="cpf"
+													type="number" value="#{alunoCadastroManager.aluno.cpf}"
+													required="true"
+													requiredMessage="Insira CPF válido (Apenas Números)"
+													maxlength="11" />
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="small mb-1" for="Matricula">Matrícula</label>
+												<h:inputText class="form-control py-4" id="Matricula"
+													type="text" value="#{alunoCadastroManager.aluno.matricula}"
+													required="true" requiredMessage="Insira Matrícula válida"
+													maxlength="10" />
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="small mb-1" for="inputEmailAddress">E-mail</label>
+										<h:inputText class="form-control py-4" id="inputEmailAddress"
+											type="email" value="#{alunoCadastroManager.aluno.email}"
+											required="true" requiredMessage="Insira e-mail válido" />
+									</div>
+									<div class="form-group">
+										<label for="sel1">Status:</label>
+										<h:selectOneMenu value="#{alunoCadastroManager.aluno.status}"
+											required="true" requiredMessage="Insira seu status">
+											<f:selectItem itemLabel="Selecionar" itemValue="" />
+											<f:selectItem itemValue="1" itemLabel="Bloqueado" />
+											<f:selectItem itemValue="2" itemLabel="Ativo" />
+											<f:selectItem itemValue="3" itemLabel="Desligado" />
+											<f:selectItem itemValue="4" itemLabel="Trancado" />
+										</h:selectOneMenu>
+									</div>
+									<div class="form-row">
+										<div class="col-md-6">
+											<label class="small mb-1" for="Sexo">Sexo</label> <br />
+											<div class="form-check-inline">
+												<h:selectOneRadio value="#{alunoCadastroManager.aluno.sexo}"
+													required="true" requiredMessage="Insira sexo ">
+													<f:selectItem itemValue="Feminino" itemLabel="Feminino" />
+													<f:selectItem itemValue="Masculino" itemLabel="Masculino" />
+												</h:selectOneRadio>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="small mb-1" for="dataDeNascimento">Data
+													de nascimento</label>
+												<h:inputText id="dataDeNascimento"
+													value="#{alunoCadastroManager.aluno.dtNascimento}"
+												 required="true" requiredMessage="Insira Data de Nascimento">
+																			</h:inputText>
+											</div>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="col-md-6">
+											<label class="small mb-1" for="NecessidadeEspecial">Necessidade
+												Especial?</label><br />
+											<div class="form-check-inline">
+												<h:selectOneRadio
+													value="#{alunoCadastroManager.aluno.temNecessidadeEspecial}">
+													<f:selectItem itemValue="1" itemLabel="Sim" />
+													<f:selectItem itemValue="2" itemLabel="Não" />
+												</h:selectOneRadio>
+
+											</div>
+										</div>
+										<div class="form-group col-md-6">
+											<div class="form-group">
+												<label class="small mb-1" for="Telefone">Telefone</label>
+												<h:inputText class="form-control py-4" id="Telefone"
+													value="#{alunoCadastroManager.aluno.telefone}" maxlength="11"/>
+											</div>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="small mb-1" for="CEP">CEP (Apenas Números)</label>
+												<h:inputText class="form-control py-4" id="CEP" type="number" 
+													value="#{alunoCadastroManager.aluno.cep}" maxlength="8"/>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="small mb-1" for="Endereço">Endereço</label>
+												<h:inputText class="form-control py-4" id="Endereço"
+													type="text" value="#{alunoCadastroManager.aluno.endereco}" />
+											</div>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="small mb-1" for="Cidade">Cidade</label>
+												<h:inputText class="form-control py-4" id="Cidade"
+													type="text" value="#{alunoCadastroManager.aluno.cidade}" />
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="small mb-1" for="UF">UF</label>
+												<h:inputText class="form-control py-4" id="UF" type="text"
+													value="#{alunoCadastroManager.aluno.uf}" maxlength="2" />
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group mt-4 mb-0">
+										<h:commandButton class="btn btn-primary btn-block"
+											action="#{alunoCadastroManager.salvar()}" value="Cadastrar" />
+									</div>
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</main>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+		crossorigin="anonymous"></script>
+	<script src="js/scripts.js"></script>
+</body>
+</html>
