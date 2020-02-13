@@ -3,19 +3,18 @@ package escola2020.controlador;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 import escola2020.dominio.Funcionarios;
-
 import escola2020.servico.FuncionarioServico;
 import escola2020.servico.FuncionarioServicoException;
 
 @SuppressWarnings("serial")
 @Named
-@RequestScoped
+@SessionScoped
 public class FuncionarioListarManager implements Serializable {
 
 	private Funcionarios funcionario;

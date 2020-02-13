@@ -88,7 +88,7 @@ public class FuncionarioRepositorioImpl implements FuncionarioRepositorio {
 		comando.setString(11, funcionario.getUf());
 		comando.setString(12, funcionario.getCep());
 		comando.setInt(13, funcionario.getCargos_codigo());
-		comando.setString(4, funcionario.getCpf());
+		comando.setString(14, funcionario.getCpf());
 		comando.executeUpdate();
 		comando.executeUpdate();
 		gerenciador.desconectar(conexao);

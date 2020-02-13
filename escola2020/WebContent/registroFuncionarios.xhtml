@@ -114,12 +114,19 @@
 									
 									<div class="form-group col-md-6">
 											<div class="form-group">
-												<label class="small mb-1" for="codigoCargos">Codigo do Cargo</label>
-												<h:inputText class="form-control py-4" id="codigoCargos"
-												    type="number" value="#{funcionarioCadastroManager.funcionario.cargos_codigo}"
-													required="true"
-													requiredMessage="Insira o numero do codigo do cargo"
-													 />
+												<label for="CodigoCargo">Codigo de Cargo</label>
+										<h:selectOneMenu value="#{turmaCadastroManager.turma.status}"
+											required="true" requiredMessage="Insira status válido">
+											<f:selectItem itemLabel="Selecionar" itemValue="#{null}"
+												noSelectionOption="true" />
+											<f:selectItem itemValue="0" itemLabel="0-Encerrada" />
+											<f:selectItem itemValue="1" itemLabel="1-Ativa" />
+											<f:selectItem itemValue="2" itemLabel="2-Confirmada" />
+											<f:selectItem itemValue="3" itemLabel="3-Em Formação" />
+											<f:selectItem itemValue="4" itemLabel="4-Cancelada" />
+											<f:selectItem itemValue="5" itemLabel="5-Suspensa" />
+										</h:selectOneMenu>
+												
 											</div>
 										</div>
 									

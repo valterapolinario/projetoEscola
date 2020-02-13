@@ -41,57 +41,67 @@
 			<div class="container-fluid">
 				<h1 class="mt-4">Funcionarios</h1>
 				<br />
-<form class="d-flex col-2 align-self-center">
-						<button type="button" class="btn btn-dark">
-							<h:link value="Novo Cadastro"
-								outcome="${funcionarioCadastroManager.redirecionaCadastro()}"
-								style="color:white" />
-						</button>
-					</form>
+				<h:form>
+					<button type="button" class="btn btn-dark">
+						<h:link value="Novo Cadastro"
+							outcome="${funcionarioCadastroManager.redirecionaCadastro()}"
+							style="color:white" />
+					</button>
 
-				<div class="card mb-4">
-					<div class="card-header">
-						<i class="fas fa-table mr-1"></i>Listagem de funcionarios
-					</div>
-					<div class="card-body">
-						<div class="table-responsive">
-							<table class="table table-bordered" id="dataTable" width="100%"
-								cellspacing="0">
-								<thead>
-									<tr>
-										<th>Matricula</th>
-										<th>cpf</th>
-										<th>nome</th>
-										<th>editar</th>
-										<th>excluir</th>
-										
-									</tr>
-								</thead>
 
-								<tbody>
-									<h:form>
-									
-									<ui:repeat var="funcionario" value="#{funcionarioListarManager.funcionarios}">
+					<div class="card mb-4">
+						<div class="card-header">
+							<i class="fas fa-table mr-1"></i>Listagem de funcionarios
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered" id="dataTable" width="100%"
+									cellspacing="0">
+									<thead>
 										<tr>
-											    <td>${funcionario.matricula}</td>
+											<th>Matricula</th>
+											<th>cpf</th>
+											<th>nome</th>
+											<th>editar</th>
+											<th>excluir</th>
+
+										</tr>
+									</thead>
+
+									<tbody>
+
+
+										<ui:repeat var="funcionario"
+											value="#{funcionarioListarManager.funcionarios}">
+											<tr>
+												<td>${funcionario.matricula}</td>
 												<td>${funcionario.cpf}</td>
 												<td>${funcionario.nome}</td>
-											    <td><i class="far fa-edit"></i> <h:commandButton value="Editar" action="#{funcionarioAtualizaManager.alterar(funcionario)}"/></td>
-												<td><i class="fas fa-trash-alt"></i> <h:commandButton
-														action="#{funcionarioListarManager.excluir(funcionario)}"
-														value="Deletar" /></td>
-										</tr>
-									</ui:repeat>										
-										
-									</h:form>
-								</tbody>
-							</table>
+												<td><i class="far fa-edit"></i> <h:commandButton
+														value="Editar"
+														action="${funcionarioAtualizaManager.alterar(funcionario)}" /></td>
+												<td><i class="fas fa-trash-alt"></i>
+												<h:commandButton value="deletar"
+														action="${funcionarioListarManager.excluir(funcionario)}" /></td>
+											</tr>
+										</ui:repeat>
+
+
+									</tbody>
+								</table>
+							</div>
 						</div>
+
+
+
 					</div>
 
 
 
-				</div>
+
+				</h:form>
+
+
 			</div>
 			</main>
 			<footer class="py-4 bg-light mt-auto">
