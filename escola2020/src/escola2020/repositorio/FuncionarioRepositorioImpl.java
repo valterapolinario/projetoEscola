@@ -31,7 +31,7 @@ public class FuncionarioRepositorioImpl implements FuncionarioRepositorio {
 			funcionario.setNome(resultado.getString("nome"));
 			funcionario.setSobrenome(resultado.getString("sobrenome"));
 			funcionario.setSexo(resultado.getString("sexo"));
-			funcionario.setDtNascimento(resultado.getDate("dtNascimento"));
+			funcionario.setDataNascimento(resultado.getString("dtNascimento"));
 			funcionario.setEmail(resultado.getString("email"));
 			funcionario.setDtCadastro(resultado.getDate("dtCadastro"));
 			funcionario.setStatus(resultado.getInt("status"));
@@ -54,9 +54,10 @@ public class FuncionarioRepositorioImpl implements FuncionarioRepositorio {
 		comando.setString(1, funcionario.getMatricula());
 		comando.setString(2, funcionario.getCpf());
 		comando.setString(3, funcionario.getNome());
-		comando.setString(4, funcionario.getSexo());
-		comando.setDate(5, funcionario.getDtNascimento());
-		comando.setString(6, funcionario.getEmail());
+		comando.setString(4, funcionario.getSobrenome());
+		comando.setString(5, funcionario.getSexo());
+		comando.setString(6, funcionario.getDataNascimento());
+		comando.setString(7, funcionario.getEmail());
 		comando.setInt(8, funcionario.getStatus());
 		comando.setString(9, funcionario.getTelefone());
 		comando.setString(10, funcionario.getEndereco());

@@ -37,10 +37,10 @@ public class FuncionarioCadastroManager implements Serializable{
 		
 		public String salvar() {
 			try {
-				servico.salvar(funcionario);
+				servico.salvar(this.funcionario);
 			} catch (FuncionarioServicoException exception) {
 				FacesContext contexto = FacesContext.getCurrentInstance();
-				FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!",exception.getMessage());
+				FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!"+ exception.getMessage(),"");
 				contexto.addMessage(null, mensagem);			
 				return null;
 			}

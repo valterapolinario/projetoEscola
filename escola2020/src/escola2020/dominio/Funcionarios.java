@@ -2,29 +2,19 @@ package escola2020.dominio;
 
 import java.util.Date;
 
-import javax.validation.constraints.NotNull;
-
 public class Funcionarios {
 
-	@NotNull
 	private String matricula;
 
-	@NotNull
 	private String cpf;
 
-	@NotNull
 	private String nome;
-
-	@NotNull
 	private String sobrenome;
 
-	@NotNull
 	private String sexo;
 
-	@NotNull
-	private java.sql.Date dtNascimento;
+	private String dataNascimento;
 
-	@NotNull
 	private String email;
 
 	private Date dtCadastro;
@@ -42,6 +32,31 @@ public class Funcionarios {
 	private String cep;
 
 	private int cargos_codigo;
+
+	public Funcionarios() {
+
+	}
+
+	public Funcionarios(String matricula, String cpf, String nome, String sobrenome, String sexo, String dataNascimento,
+			String email, int status, String telefone, String endereco, String cidade, String uf, String cep,
+			int cargos_codigo) {
+		super();
+		this.matricula = matricula;
+		this.cpf = cpf;
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.sexo = sexo;
+		this.dataNascimento = dataNascimento;
+		this.email = email;
+		this.status = status;
+		this.telefone = telefone;
+		this.endereco = endereco;
+		this.cidade = cidade;
+		this.uf = uf;
+		this.cep = cep;
+		this.cargos_codigo = cargos_codigo;
+
+	}
 
 	public String getMatricula() {
 		return matricula;
@@ -83,12 +98,12 @@ public class Funcionarios {
 		this.sexo = sexo;
 	}
 
-	public java.sql.Date getDtNascimento() {
-		return dtNascimento;
+	public String getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setDtNascimento(java.sql.Date dtNascimento) {
-		this.dtNascimento = dtNascimento;
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getEmail() {
@@ -103,8 +118,8 @@ public class Funcionarios {
 		return dtCadastro;
 	}
 
-	public void setDtCadastro(java.sql.Date date) {
-		this.dtCadastro = date;
+	public void setDtCadastro(Date dtCadastro) {
+		this.dtCadastro = dtCadastro;
 	}
 
 	public int getStatus() {
