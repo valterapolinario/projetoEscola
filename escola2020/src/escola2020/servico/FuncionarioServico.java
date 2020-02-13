@@ -42,6 +42,15 @@ public class FuncionarioServico {
 			throw new FuncionarioServicoException(exception.getMessage());
 		}
 	}
+	
+	public void excluir(String cpf) throws FuncionarioServicoException{
+		try {
+			this.repositorio.excluir(cpf);
+		} catch (SQLException exception) {
+			throw new FuncionarioServicoException(exception.getMessage());
+		}
+	}
+
 
 
 	

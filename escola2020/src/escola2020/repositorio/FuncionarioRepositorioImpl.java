@@ -77,8 +77,13 @@ public class FuncionarioRepositorioImpl implements FuncionarioRepositorio {
 	}
 
 	@Override
-	public void excluir(String matricula) throws SQLException {
-		// TODO Auto-generated method stub
+	public void excluir(String cpf) throws SQLException {
+		Connection conexao = gerenciador.conectar();
+		String comandoSql = "DELETE FROM Funcionarios WHERE cpf=?";
+		PreparedStatement comando = conexao.prepareStatement(comandoSql);
+		comando.setString(1, cpf);
+		comando.executeUpdate();
+		gerenciador.desconectar(conexao);
 
 	}
 

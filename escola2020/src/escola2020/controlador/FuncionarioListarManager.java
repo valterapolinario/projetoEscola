@@ -9,54 +9,64 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 import escola2020.dominio.Funcionarios;
+
 import escola2020.servico.FuncionarioServico;
 import escola2020.servico.FuncionarioServicoException;
+
 @SuppressWarnings("serial")
 @Named
 @RequestScoped
-public class FuncionarioListarManager implements Serializable{
-	
-		private Funcionarios funcionario;
-		private FuncionarioServico servico;
-		
-		public FuncionarioListarManager() {
-			this.setFuncionario(new Funcionarios());
-			this.servico = new FuncionarioServico();
-		}
+public class FuncionarioListarManager implements Serializable {
 
-		public Funcionarios getFuncionario() {
-			return funcionario;
-		}
+	private Funcionarios funcionario;
+	private FuncionarioServico servico;
 
-		public void setFuncionario(Funcionarios funcionario) {
-			this.funcionario = funcionario;
-		}
+	public FuncionarioListarManager() {
+		this.setFuncionario(new Funcionarios());
+		this.servico = new FuncionarioServico();
+	}
 
-		
-		
-		public ArrayList<Funcionarios> getFuncionarios() {
-			try {
-				return servico.listar();
-			} catch (FuncionarioServicoException exception) {
-				FacesContext contexto = FacesContext.getCurrentInstance();
-				FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERRO :", exception.getMessage());
-				contexto.addMessage(null, mensagem);
-				return (new ArrayList<Funcionarios>());
-			}
+	public Funcionarios getFuncionario() {
+		return funcionario;
+	}
 
-		}
-		
-		public String salvar() {
-			try {
-				servico.salvar(funcionario);
-			} catch (FuncionarioServicoException exception) {
-				FacesContext contexto = FacesContext.getCurrentInstance();
-				FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!",exception.getMessage());
-				contexto.addMessage(null, mensagem);			
-				return null;
-			}
-			return "tabelaFuncionarios.xhtml";
+	public void setFuncionario(Funcionarios funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	public ArrayList<Funcionarios> getFuncionarios() {
+		try {
+			return servico.listar();
+		} catch (FuncionarioServicoException exception) {
+			FacesContext contexto = FacesContext.getCurrentInstance();
+			FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERRO :", exception.getMessage());
+			contexto.addMessage(null, mensagem);
+			return (new ArrayList<Funcionarios>());
 		}
 
 	}
 
+	public String excluir(Funcionarios funcionario) {
+		try {
+			servico.excluir(funcionario.getCpf());
+		} catch (FuncionarioServicoException exception) {
+			FacesContext contexto = FacesContext.getCurrentInstance();
+			FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", exception.getMessage());
+			contexto.addMessage(null, mensagem);
+		}
+		return "tabelaFuncionarios.xhtml";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

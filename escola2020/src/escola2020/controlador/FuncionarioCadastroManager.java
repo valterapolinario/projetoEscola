@@ -46,6 +46,11 @@ public class FuncionarioCadastroManager implements Serializable{
 			}
 			return "tabelaFuncionarios.xhtml";
 		}
+		
+		
+		public String redirecionaCadastro() {
+			return "registroFuncionarios.xhtml";
+		}
 
 	}
 
