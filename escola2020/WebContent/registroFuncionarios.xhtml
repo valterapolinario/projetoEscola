@@ -119,10 +119,11 @@
 
 										<div class="form-group col-md-6">
 											<div class="form-group">
-												<label for="CodigoCargo">Codigo de Cargo</label>
-												<h:selectOneMenu required="true"
+												<label for="CodigoCargo">Cargo</label>
+												<h:selectOneMenu value="#{funcionarioCadastroManager.funcionario.cargos_codigo}" required="true"
 													requiredMessage="Insira status válido">
-													<f:selectItems value="#{funcionarioCadastroManager.cargos}" />
+													<f:selectItems value="#{funcionarioCadastroManager.cargos}" var="cargo" />
+													
 													
 
 												</h:selectOneMenu>

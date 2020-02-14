@@ -9,8 +9,7 @@ import javax.validation.constraints.NotNull;
 public class Funcionarios {
 
 	private String matricula;
-	@Min(value =11,message = "apenas numeros e no total 11")
-	@Max(value =11,message = "apenas numeros e no total 11")
+
 	@NotNull(message = "campo obrigatorio")
 	private String cpf;
 
