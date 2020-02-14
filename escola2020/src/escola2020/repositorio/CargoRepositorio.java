@@ -21,4 +21,6 @@ public interface CargoRepositorio {
 	
 
 	public void excluir(Integer id) throws SQLException;
+	
+	public void atualizar (Cargo cargo) throws SQLException;
 }

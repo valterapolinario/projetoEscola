@@ -66,5 +66,19 @@ public class CargoRepositorioImpl implements CargoRepositorio {
 		gerenciador.desconectar(conexao);
 		
 	}
+	@Override
+	public void atualizar(Cargo cargo) throws SQLException {
+		
+		Connection conexao = gerenciador.conectar();
+		String comandoSql = "UPDATE cargos SET nome=?,descricao = ?,competencias = ?,pisoSalarial =? WHERE  codigo =?";
+		PreparedStatement comando = conexao.prepareStatement(comandoSql);
+		comando.setString(1, cargo.getNome());
+		comando.setString(2, cargo.getDescricao());
+		comando.setString(3, cargo.getCopetencias());
+		comando.setDouble(4, cargo.getPisoSalarial());
+		comando.setInt(5, cargo.getCodigo());
+		comando.executeUpdate();
+		gerenciador.desconectar(conexao);
+	}
 
 }

@@ -1,7 +1,7 @@
 package escola2020.dominio;
 
 public class Cargo {
-	private Integer codigo;
+	private int codigo;
 	private String nome;
 	private String descricao;
 	private String copetencias;
@@ -15,11 +15,11 @@ public class Cargo {
 
 	}
 
-	public Integer getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 

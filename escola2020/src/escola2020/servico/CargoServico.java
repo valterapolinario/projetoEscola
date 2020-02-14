@@ -38,4 +38,12 @@ public class CargoServico {
 			throw new CargoServicoException(exception.getMessage());
 		}
 	}
+	public void alterar(Cargo cargo) throws CargoServicoException {
+		try {
+		this.repositorio.atualizar(cargo);
+		} catch (SQLException exception) {
+			throw new CargoServicoException(exception.getMessage());
+		}
+
+	}
 }
