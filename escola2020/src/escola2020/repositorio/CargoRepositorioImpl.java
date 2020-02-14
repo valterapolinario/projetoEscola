@@ -53,4 +53,18 @@ public class CargoRepositorioImpl implements CargoRepositorio {
 
 	}
 
+	@Override
+	public void inserir(Cargo cargo) throws SQLException {
+		Connection conexao = gerenciador.conectar();
+		String comandoSql = "INSERT INTO Cargos (nome,descricao,competencias,pisoSalarial) VALUES (?,?,?,?)";
+		PreparedStatement comando = conexao.prepareStatement(comandoSql);
+		comando.setString(1, cargo.getNome());
+		comando.setString(2, cargo.getDescricao());
+		comando.setString(3, cargo.getCopetencias());
+		comando.setDouble(4, cargo.getPisoSalarial());
+		comando.executeUpdate();
+		gerenciador.desconectar(conexao);
+		
+	}
+
 }

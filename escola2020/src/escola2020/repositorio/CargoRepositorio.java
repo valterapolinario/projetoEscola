@@ -4,10 +4,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import escola2020.dominio.Cargo;
+import escola2020.dominio.Funcionarios;
 
 
 
 public interface CargoRepositorio {
+	
+	    public void inserir(Cargo cargo) throws SQLException;
 		public Cargo get(String matricula) throws SQLException;
 		/**
 	 * Retorna um vetor com todos os registros do BD

@@ -22,9 +22,18 @@ public class CargoServico {
 			throw new CargoServicoException(exception.getMessage());
 		}
 	}
+
 	public void excluir(Integer id) throws CargoServicoException {
 		try {
 			this.repositorio.excluir(id);
+		} catch (SQLException exception) {
+			throw new CargoServicoException(exception.getMessage());
+		}
+	}
+
+	public void salvar(Cargo cargo) throws CargoServicoException {
+		try {
+			this.repositorio.inserir(cargo);
 		} catch (SQLException exception) {
 			throw new CargoServicoException(exception.getMessage());
 		}
