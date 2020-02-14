@@ -3,6 +3,7 @@ package escola2020.repositorio;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import escola2020.dominio.Cargo;
 import escola2020.dominio.Funcionarios;
 
 
@@ -21,4 +22,7 @@ public interface FuncionarioRepositorio {
 	 * @throws SQLException
 	 */
 	public ArrayList<Funcionarios> getAll() throws SQLException;
+	
+	public ArrayList<Cargo>getCargos()throws SQLException;
+	
 }
