@@ -32,21 +32,22 @@
 							<div class="card-body">
 								<h:messages></h:messages>
 								<h:form>
-		
+
 									<div class="form-row">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="small mb-1" for="nome">Nome</label>
 												<h:inputText class="form-control py-4" id="nome" type="text"
-													value="#{funcionarioCadastroManager.funcionario.nome}" required="true"
-													requiredMessage="Insira Nome" />
+													value="#{funcionarioCadastroManager.funcionario.nome}"
+													required="true" requiredMessage="Insira Nome" />
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="small mb-1" for="Sobrenome">Sobrenome</label>
 												<h:inputText class="form-control py-4" id="Sobrenome"
-													type="text" value="#{funcionarioCadastroManager.funcionario.sobrenome}"
+													type="text"
+													value="#{funcionarioCadastroManager.funcionario.sobrenome}"
 													required="true" requiredMessage="Insira Sobrenome" />
 											</div>
 										</div>
@@ -57,15 +58,16 @@
 											<div class="form-group">
 												<label class="small mb-1" for="cpf">CPF</label>
 												<h:inputText class="form-control py-4" id="cpf"
-													type="number" value="#{funcionarioCadastroManager.funcionario.cpf}"
-												 />
+													type="number"
+													value="#{funcionarioCadastroManager.funcionario.cpf}" />
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="small mb-1" for="Matricula">Matrícula</label>
 												<h:inputText class="form-control py-4" id="Matricula"
-													type="text" value="#{funcionarioCadastroManager.funcionario.matricula}"
+													type="text"
+													value="#{funcionarioCadastroManager.funcionario.matricula}"
 													required="true" requiredMessage="Insira Matrícula válida"
 													maxlength="10" />
 											</div>
@@ -74,12 +76,14 @@
 									<div class="form-group">
 										<label class="small mb-1" for="inputEmailAddress">E-mail</label>
 										<h:inputText class="form-control py-4" id="inputEmailAddress"
-											type="email" value="#{funcionarioCadastroManager.funcionario.email}"
+											type="email"
+											value="#{funcionarioCadastroManager.funcionario.email}"
 											required="true" requiredMessage="Insira e-mail válido" />
 									</div>
 									<div class="form-group">
 										<label for="sel1">Status:</label>
-										<h:selectOneMenu value="#{funcionarioCadastroManager.funcionario.status}"
+										<h:selectOneMenu
+											value="#{funcionarioCadastroManager.funcionario.status}"
 											required="true" requiredMessage="Insira seu status">
 											<f:selectItem itemLabel="Selecionar" itemValue="" />
 											<f:selectItem itemValue="1" itemLabel="Bloqueado" />
@@ -92,7 +96,8 @@
 										<div class="col-md-6">
 											<label class="small mb-1" for="Sexo">Sexo</label> <br />
 											<div class="form-check-inline">
-												<h:selectOneRadio value="#{funcionarioCadastroManager.funcionario.sexo}"
+												<h:selectOneRadio
+													value="#{funcionarioCadastroManager.funcionario.sexo}"
 													required="true" requiredMessage="Insira sexo ">
 													<f:selectItem itemValue="Feminino" itemLabel="Feminino" />
 													<f:selectItem itemValue="Masculino" itemLabel="Masculino" />
@@ -105,52 +110,53 @@
 													de nascimento</label>
 												<h:inputText id="dataDeNascimento"
 													value="#{funcionarioCadastroManager.funcionario.dataNascimento}"
-												 required="true" requiredMessage="Insira Data de Nascimento">
-																			</h:inputText>
+													required="true" requiredMessage="Insira Data de Nascimento">
+												</h:inputText>
 											</div>
 										</div>
 									</div>
 									<div class="form-row">
-									
-									<div class="form-group col-md-6">
+
+										<div class="form-group col-md-6">
 											<div class="form-group">
 												<label for="CodigoCargo">Codigo de Cargo</label>
-										<h:selectOneMenu value="#{turmaCadastroManager.turma.status}"
-											required="true" requiredMessage="Insira status válido">
-											<f:selectItem itemLabel="Selecionar" itemValue="#{null}"
-												noSelectionOption="true" />
-											<f:selectItem itemValue="0" itemLabel="0-Encerrada" />
-											<f:selectItem itemValue="1" itemLabel="1-Ativa" />
-											<f:selectItem itemValue="2" itemLabel="2-Confirmada" />
-											<f:selectItem itemValue="3" itemLabel="3-Em Formação" />
-											<f:selectItem itemValue="4" itemLabel="4-Cancelada" />
-											<f:selectItem itemValue="5" itemLabel="5-Suspensa" />
-										</h:selectOneMenu>
-												
+												<h:selectOneMenu required="true"
+													requiredMessage="Insira status válido">
+													<f:selectItems value="#{funcionarioCadastroManager.cargos}" />
+													
+
+												</h:selectOneMenu>
+
+
 											</div>
 										</div>
-									
+
 										<div class="form-group col-md-6">
 											<div class="form-group">
 												<label class="small mb-1" for="Telefone">Telefone</label>
 												<h:inputText class="form-control py-4" id="Telefone"
-													value="#{funcionarioCadastroManager.funcionario.telefone}" maxlength="11"/>
+													value="#{funcionarioCadastroManager.funcionario.telefone}"
+													maxlength="11" />
 											</div>
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="small mb-1" for="CEP">CEP (Apenas Números)</label>
-												<h:inputText class="form-control py-4" id="CEP" type="number" 
-													value="#{funcionarioCadastroManager.funcionario.cep}" maxlength="8"/>
+												<label class="small mb-1" for="CEP">CEP (Apenas
+													Números)</label>
+												<h:inputText class="form-control py-4" id="CEP"
+													type="number"
+													value="#{funcionarioCadastroManager.funcionario.cep}"
+													maxlength="8" />
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="small mb-1" for="Endereço">Endereço</label>
 												<h:inputText class="form-control py-4" id="Endereço"
-													type="text" value="#{funcionarioCadastroManager.funcionario.endereco}" />
+													type="text"
+													value="#{funcionarioCadastroManager.funcionario.endereco}" />
 											</div>
 										</div>
 									</div>
@@ -159,21 +165,24 @@
 											<div class="form-group">
 												<label class="small mb-1" for="Cidade">Cidade</label>
 												<h:inputText class="form-control py-4" id="Cidade"
-													type="text" value="#{funcionarioCadastroManager.funcionario.cidade}" />
+													type="text"
+													value="#{funcionarioCadastroManager.funcionario.cidade}" />
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="small mb-1" for="UF">UF</label>
 												<h:inputText class="form-control py-4" id="UF" type="text"
-													value="#{funcionarioCadastroManager.funcionario.uf}" maxlength="2" />
+													value="#{funcionarioCadastroManager.funcionario.uf}"
+													maxlength="2" />
 											</div>
 										</div>
 									</div>
 
 									<div class="form-group mt-4 mb-0">
 										<h:commandButton class="btn btn-primary btn-block"
-											action="#{funcionarioCadastroManager.salvar()}" value="Cadastrar" />
+											action="#{funcionarioCadastroManager.salvar()}"
+											value="Cadastrar" />
 									</div>
 								</h:form>
 							</div>

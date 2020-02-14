@@ -6,6 +6,10 @@ public class Cargo {
 	private String descricao;
 	private String copetencias;
 	private double pisoSalarial;
+	
+	public String toString() {
+		return this.nome;
+	}
 
 	public Cargo() {
 

@@ -1,19 +1,22 @@
 package escola2020.controlador;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
+import escola2020.dominio.Cargo;
 import escola2020.dominio.Funcionarios;
 import escola2020.servico.FuncionarioServico;
 import escola2020.servico.FuncionarioServicoException;
 
 @SuppressWarnings("serial")
 @Named
-@RequestScoped
+@SessionScoped
 public class FuncionarioCadastroManager implements Serializable {
 
 	private Funcionarios funcionario;
@@ -48,4 +51,14 @@ public class FuncionarioCadastroManager implements Serializable {
 		return "registroFuncionarios.xhtml";
 	}
 
+	public ArrayList<Cargo> getCargos() {
+		try {
+			return servico.listarCargos();
+		} catch (FuncionarioServicoException exception) {
+			FacesContext contexto = FacesContext.getCurrentInstance();
+			FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERRO :"+ exception.getMessage(),"");
+			contexto.addMessage(null, mensagem);
+			return (new ArrayList<Cargo>());
+		}
+	}
 }
