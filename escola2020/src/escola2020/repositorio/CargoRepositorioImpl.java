@@ -1,6 +1,7 @@
 package escola2020.repositorio;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,8 +21,8 @@ public class CargoRepositorioImpl implements CargoRepositorio {
 		String comandosql = "SELECT * FROM cargos";
 		Statement comando = conexao.createStatement();
 		ResultSet resultado = comando.executeQuery(comandosql);
-		ArrayList<Cargo>lista = new ArrayList<>();
-		Cargo cargo ;
+		ArrayList<Cargo> lista = new ArrayList<>();
+		Cargo cargo;
 		while (resultado.next()) {
 			cargo = new Cargo();
 			cargo.setCodigo(resultado.getInt("codigo"));
@@ -41,6 +42,15 @@ public class CargoRepositorioImpl implements CargoRepositorio {
 		return null;
 	}
 
+	@Override
+	public void excluir(Integer id) throws SQLException {
+		Connection conexao = gerenciador.conectar();
+		String comandoSql = "DELETE FROM Cargos WHERE codigo =?";
+		PreparedStatement comando = conexao.prepareStatement(comandoSql);
+		comando.setInt(1, id);
+		comando.executeUpdate();
+		gerenciador.desconectar(conexao);
 
+	}
 
 }

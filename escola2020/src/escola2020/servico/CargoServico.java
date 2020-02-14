@@ -15,7 +15,6 @@ public class CargoServico {
 		this.repositorio = new CargoRepositorioImpl();
 	}
 
-
 	public ArrayList<Cargo> listar() throws CargoServicoException {
 		try {
 			return this.repositorio.getAll();
@@ -23,8 +22,11 @@ public class CargoServico {
 			throw new CargoServicoException(exception.getMessage());
 		}
 	}
-
-
-
-
+	public void excluir(Integer id) throws CargoServicoException {
+		try {
+			this.repositorio.excluir(id);
+		} catch (SQLException exception) {
+			throw new CargoServicoException(exception.getMessage());
+		}
+	}
 }

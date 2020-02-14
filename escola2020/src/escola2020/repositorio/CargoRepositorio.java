@@ -17,5 +17,5 @@ public interface CargoRepositorio {
 	public ArrayList<Cargo> getAll() throws SQLException;
 	
 
-	
+	public void excluir(Integer id) throws SQLException;
 }
