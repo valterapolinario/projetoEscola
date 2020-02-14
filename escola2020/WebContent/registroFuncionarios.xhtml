@@ -119,16 +119,19 @@
 
 										<div class="form-group col-md-6">
 											<div class="form-group">
+												
 												<label for="CodigoCargo">Cargo</label>
+												
+												
 												<h:selectOneMenu
 											value="#{funcionarioCadastroManager.funcionario.cargos_codigo}"
 											required="true" requiredMessage="Insira seu status">
-											<ui:repeat var="" value=""></ui:repeat>
 											
-											<f:selectItem itemValue="1" itemLabel="Bloqueado" />
-											<f:selectItem itemValue="2" itemLabel="Ativo" />
-											<f:selectItem itemValue="3" itemLabel="Desligado" />
-											<f:selectItem itemValue="4" itemLabel="Trancado" />
+											
+											<f:selectItems value="#{funcionarioCadastroManager.cargos}" var="cargo" 
+											itemLabel="#{cargo.nome}" itemValue="#{cargo.codigo}"/>
+											
+
 										</h:selectOneMenu>
 
 
