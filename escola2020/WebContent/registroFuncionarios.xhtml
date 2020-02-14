@@ -125,9 +125,9 @@
 												
 												<h:selectOneMenu
 											value="#{funcionarioCadastroManager.funcionario.cargos_codigo}"
-											required="true" requiredMessage="Insira seu status">
+											required="true" requiredMessage="Insira seu cargo">
 											
-											
+											<f:selectItem itemLabel="Selecione o cargo" />
 											<f:selectItems value="#{funcionarioCadastroManager.cargos}" var="cargo" 
 											itemLabel="#{cargo.nome}" itemValue="#{cargo.codigo}"/>
 											
